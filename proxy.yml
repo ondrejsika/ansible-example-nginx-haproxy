@@ -1,0 +1,14 @@
+---
+- name: Setup Proxy
+  hosts:
+    - proxy
+  vars:
+    haproxy_backend_servers:
+      - name: web0
+        address: web0.sikademo.com:80
+      - name: web1
+        address: web1.sikademo.com:80
+      - name: web2
+        address: web2.sikademo.com:80
+  roles:
+    - geerlingguy.haproxy

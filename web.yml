@@ -1,0 +1,6 @@
+---
+- name: Setup Web
+  hosts:
+    - web
+  roles:
+    - web

@@ -1,0 +1,18 @@
+all:
+  hosts:
+    web0.sikademo.com:
+    web1.sikademo.com:
+    proxy0.sikademo.com:
+    proxy1.sikademo.com:
+  vars:
+    ansible_user: root
+    ansible_python_interpreter: /usr/bin/python3
+  children:
+    web:
+      hosts:
+        web0.sikademo.com:
+        web1.sikademo.com:
+    proxy:
+      hosts:
+        proxy0.sikademo.com:
+        proxy1.sikademo.com:
