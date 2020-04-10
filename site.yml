@@ -1,2 +1,9 @@
+- name: Commons
+  hosts: all
+  vars:
+    resolv_nameservers:
+      - 1.1.1.1
+  roles:
+    - ahuffman.resolv
 - import_playbook: web.yml
 - import_playbook: proxy.yml

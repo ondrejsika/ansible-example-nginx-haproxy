@@ -5,9 +5,6 @@ variable "cloudflare_token" {}
 variable "web_vm_count" {
   default = 2
 }
-variable "proxy_vm_count" {
-  default = 2
-}
 
 provider "digitalocean" {
   token = var.do_token
@@ -50,7 +47,7 @@ resource "digitalocean_droplet" "proxy" {
   count = var.proxy_vm_count
 
   image  = "debian-10-x64"
-  name   = "proxy${count.index}"
+  name   = "proxy"
   region = "fra1"
   size   = "s-1vcpu-1gb"
   ssh_keys = [
@@ -59,10 +56,8 @@ resource "digitalocean_droplet" "proxy" {
 }
 
 resource "cloudflare_record" "proxy" {
-  count = var.proxy_vm_count
-
   domain = "sikademo.com"
-  name   = "proxy${count.index}"
+  name   = "proxy"
   value  = digitalocean_droplet.proxy[count.index].ipv4_address
   type   = "A"
   proxied = false

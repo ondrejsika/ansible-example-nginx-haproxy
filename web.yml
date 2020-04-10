@@ -1,6 +1,7 @@
 ---
 - name: Setup Web
-  hosts:
-    - web
+  hosts: web
+  vars:
+    text: Hello!
   roles:
     - web
