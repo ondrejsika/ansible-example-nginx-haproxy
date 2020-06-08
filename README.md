@@ -3,7 +3,6 @@
     2020 Ondrej Sika <ondrej@ondrejsika.com>
     https://github.com/ondrejsika/ansible-example-nginx-haproxy
 
-
 ## Run Infrastructure
 
 ```
@@ -15,13 +14,13 @@ terraform apply -auto-approve
 ## Check Connection to Servers
 
 ```
-./ping.sh
+ansible all -m ping
 ```
 
 ## Apply Playbooks
 
 ```
-./apply.sh site.yml
+ansible-playbook site.yml
 ```
 
 ## Destroy Infrastructure
