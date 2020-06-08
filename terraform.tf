@@ -44,8 +44,6 @@ resource "cloudflare_record" "web" {
 }
 
 resource "digitalocean_droplet" "proxy" {
-  count = var.proxy_vm_count
-
   image  = "debian-10-x64"
   name   = "proxy"
   region = "fra1"
@@ -58,7 +56,7 @@ resource "digitalocean_droplet" "proxy" {
 resource "cloudflare_record" "proxy" {
   domain = "sikademo.com"
   name   = "proxy"
-  value  = digitalocean_droplet.proxy[count.index].ipv4_address
+  value  = digitalocean_droplet.proxy.ipv4_address
   type   = "A"
   proxied = false
 }
