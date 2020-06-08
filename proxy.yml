@@ -3,14 +3,6 @@
   hosts:
     - proxy
   vars:
-    haproxy_backend_servers:
-      - name: web0
-        address: web0.sikademo.com:80
-      - name: web1
-        address: web1.sikademo.com:80
-      - name: web2
-        address: web2.sikademo.com:80
-      - name: web3
-        address: web3.sikademo.com:80
+    haproxy_backend_servers: "{{ hostvars['proxy.sikademo.com'].groups.web|haproxy_backend_servers }}"
   roles:
     - geerlingguy.haproxy
