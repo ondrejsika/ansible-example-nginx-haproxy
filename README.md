@@ -17,6 +17,12 @@ terraform apply -auto-approve
 ansible all -m ping
 ```
 
+## Dowload roles from Ansible Galaxy
+
+```
+ansible-galaxy install ahuffman.resolv
+```
+
 ## Apply Playbooks
 
 ```
