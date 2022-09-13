@@ -29,6 +29,12 @@ ansible-galaxy install ahuffman.resolv
 ansible-playbook site.yml
 ```
 
+See:
+
+- http://proxy.sikademo.com
+- http://web0.sikademo.com
+- http://web1.sikademo.com
+
 ## Destroy Infrastructure
 
 ```
